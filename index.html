@@ -1,0 +1,81 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnologia simples para o seu negócio</title>
+<meta name="description" content="Sites, sistemas de agendamento, loja virtual, atendimento automático no WhatsApp e suporte de computador à distância.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1020;
+    --text:#F2F4FA;
+    --muted:#9AA3BF;
+    --line:rgba(255,255,255,.10);
+    --accent:#FFB547;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    background:radial-gradient(800px 600px at 100% 0%,rgba(255,181,71,.14),transparent 65%),var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    line-height:1.4;
+  }
+  main{max-width:640px;margin:0 auto;padding:64px 24px 72px}
+  h1{font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.05;font-weight:700;letter-spacing:-.04em}
+  .sub{margin-top:16px;font-size:1.05rem;color:var(--muted)}
+  .btn{
+    display:inline-block;margin-top:28px;
+    background:var(--accent);color:var(--bg);
+    font-weight:600;font-size:1.05rem;text-decoration:none;
+    padding:16px 28px;border-radius:16px;
+  }
+  .btn:focus-visible{outline:3px solid var(--text);outline-offset:3px}
+  ul{list-style:none;margin-top:48px}
+  li{position:relative;padding:16px 0 16px 20px;border-top:1px solid var(--line)}
+  li:last-child{border-bottom:1px solid var(--line)}
+  li::before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:4px;border-radius:2px;background:var(--accent)}
+  .n{font-size:1.1rem;font-weight:600}
+  .d{font-size:.95rem;color:var(--muted);margin-top:2px}
+  .fim{margin-top:48px}
+  .fim p{font-size:1.3rem;font-weight:600;letter-spacing:-.02em}
+</style>
+</head>
+<body>
+<main>
+  <h1>Tecnologia simples para o seu negócio</h1>
+  <p class="sub">Eu cuido da parte técnica, você cuida do seu negócio.</p>
+  <a class="btn contato" href="#">Pedir orçamento</a>
+
+  <ul>
+    <li><div class="n">Site para o seu negócio</div><div class="d">Apareça no Google e no celular do cliente</div></li>
+    <li><div class="n">Sistema de agendamento</div><div class="d">O cliente marca horário sozinho, sem ficar te ligando</div></li>
+    <li><div class="n">Loja virtual com pedido no WhatsApp</div><div class="d">O cliente escolhe os produtos e o pedido chega direto no seu zap</div></li>
+    <li><div class="n">Atendimento automático no WhatsApp</div><div class="d">Responde horário, preço e endereço sem você precisar digitar</div></li>
+    <li><div class="n">Controle de estoque e clientes</div><div class="d">Tudo organizado num sistema, sem caderno nem planilha bagunçada</div></li>
+    <li><div class="n">Conserto e melhoria de site</div><div class="d">Seu site está lento, quebrado ou feio? Eu arrumo</div></li>
+    <li><div class="n">Colocar seu site no ar</div><div class="d">Cuido do domínio, da hospedagem e de tudo que for técnico</div></li>
+    <li><div class="n">Automação de tarefas repetitivas</div><div class="d">Planilhas e processos que você faz à mão, feitos sozinhos</div></li>
+    <li><div class="n">Suporte de computador à distância</div><div class="d">Windows e Linux resolvidos pela internet, sem sair de casa</div></li>
+  </ul>
+
+  <div class="fim">
+    <p>Vamos conversar sobre o seu negócio?</p>
+    <a class="btn contato" href="#">Pedir orçamento</a>
+  </div>
+</main>
+
+<script>
+  // Cole aqui o link do seu Google Forms (o botão "Enviar" > ícone de link)
+  const LINK_CONTATO = "COLE_AQUI_O_LINK_DO_GOOGLE_FORMS";
+
+  document.querySelectorAll(".contato").forEach(function (a) {
+    a.href = LINK_CONTATO;
+  });
+</script>
+</body>
+</html>
