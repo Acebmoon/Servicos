@@ -18,30 +18,50 @@
     --accent:#F2B24C;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  [hidden]{display:none !important}
   body{
     font-family:'Poppins',system-ui,sans-serif;
     background:var(--bg);
     color:var(--text);
     line-height:1.4;
+    position:relative;
   }
+
+  .abas{
+    position:absolute;top:0;left:0;right:0;z-index:2;
+    max-width:1300px;margin:0 auto;
+    padding:clamp(16px,3vh,28px) clamp(20px,5vw,72px) 0;
+    display:flex;gap:28px;
+    overflow-x:auto;white-space:nowrap;
+  }
+  .aba{
+    background:none;border:0;border-bottom:2px solid transparent;
+    color:var(--muted);font:inherit;font-size:1rem;font-weight:500;
+    padding:6px 0;cursor:pointer;
+  }
+  .aba:hover{color:var(--text)}
+  .aba[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+  .aba:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .curto{display:none}
+
   .page{
     max-width:1300px;
     margin:0 auto;
     height:100vh;
     min-height:580px;
-    padding:clamp(24px,5vh,56px) clamp(20px,5vw,72px);
+    padding:clamp(96px,19vh,180px) clamp(20px,5vw,72px) clamp(24px,5vh,56px);
     display:grid;
     grid-template-columns:1fr 1.1fr;
     gap:clamp(40px,7vw,110px);
-    align-items:center;
+    align-items:start;
   }
 
   .oi{font-size:1.05rem;color:var(--muted);margin-bottom:18px}
   h1{
-    font-size:clamp(2.1rem,3.2vw + 2vh,4.2rem);
+    font-size:clamp(2.1rem,2.4vw + 2vh,3.6rem);
     line-height:1.06;font-weight:700;letter-spacing:-.03em;
   }
-  .sub{margin-top:20px;font-size:1.15rem;color:var(--muted);max-width:30ch}
+  .sub{margin-top:20px;font-size:1.1rem;color:var(--muted);max-width:40ch}
   .btn{
     display:inline-block;margin-top:32px;
     background:var(--accent);color:#14171C;
@@ -53,26 +73,41 @@
   .nota{margin-top:14px;font-size:.9rem;color:var(--muted)}
 
   ul{list-style:none}
-  li{padding:clamp(8px,1.5vh,15px) 0;border-top:1px solid var(--line)}
+  li{padding:clamp(8px,1.5vh,15px) 0;border-top:1px solid var(--line);min-height:clamp(60px,9.5vh,80px);display:flex;flex-direction:column;justify-content:center}
   li:last-child{border-bottom:1px solid var(--line)}
   .n{font-size:1.08rem;font-weight:600}
   .d{font-size:.92rem;color:var(--muted);margin-top:1px}
+  .d a{color:var(--accent);text-decoration:none}
+  .d a:hover{text-decoration:underline}
+
+  li.cert{flex-direction:row;align-items:center;justify-content:flex-start;gap:16px}
+  li.cert img{width:46px;height:46px;border-radius:8px;flex-shrink:0;object-fit:cover}
 
   @media (max-width:900px){
-    .page{height:auto;min-height:0;grid-template-columns:1fr;gap:40px;padding:48px 22px 56px;align-items:start}
+    .page{height:auto;min-height:0;grid-template-columns:1fr;gap:40px;padding:84px 22px 56px;align-items:start}
+    .abas{padding:20px 22px 0;gap:18px}
+    .aba{font-size:.95rem}
+    .longo{display:none}
+    .curto{display:inline}
     h1{font-size:clamp(2.2rem,9vw,3rem)}
-    li{padding:14px 0}
+    li{padding:14px 0;min-height:0}
   }
 </style>
 </head>
 <body>
-<main class="page">
+
+<nav class="abas" role="tablist">
+  <button class="aba" role="tab" data-aba="servicos" aria-selected="true">Serviços</button>
+  <button class="aba" role="tab" data-aba="sobre" aria-selected="false"><span class="longo">Sobre o desenvolvedor</span><span class="curto">Sobre mim</span></button>
+  <button class="aba" role="tab" data-aba="certificados" aria-selected="false">Certificados</button>
+</nav>
+
+<main class="page" id="servicos" role="tabpanel">
 
   <section>
-    <h1>Tecnologia simples para o seu negócio</h1>
-    <p class="sub">Eu cuido da parte técnica, você cuida do seu negócio.</p>
+    <p class="oi">Serviços</p>
+    <h1>Tecnologia e assistência digital para o seu negócio</h1>
     <a class="btn contato" href="#">Fazer pedido</a>
-    <p class="nota">Preencha o formulário e eu entro em contato.</p>
   </section>
 
   <section>
@@ -88,6 +123,46 @@
 
 </main>
 
+<main class="page" id="sobre" role="tabpanel" hidden>
+
+  <section>
+    <p class="oi">Sobre o desenvolvedor</p>
+    <h1>Oi, eu sou o Ace.</h1>
+    <p class="sub">Estudante de Ciência da Computação. Resolvo problemas de tecnologia para negócios.</p>
+    <a class="btn contato" href="#">Fazer pedido</a>
+  </section>
+
+  <section>
+    <ul>
+      <li><div class="n">Formação</div><div class="d">Cursando Ciência da Computação</div></li>
+      <li><div class="n">Experiência</div><div class="d">Mais de 20 sistemas operacionais usados: Windows, Linux, BSD e macOS</div></li>
+      <li><div class="n">Prática em</div><div class="d">Java, Python, C++ e computação em nuvem (AWS)</div></li>
+      <li><div class="n">Inglês</div><div class="d">Intermediário: entendo e converso</div></li>
+      <li><div class="n">Como funciona</div><div class="d">Contato via preenchimento do formulário</div></li>
+      <li><div class="n">GitHub</div><div class="d"><a href="https://github.com/Acebmoon" target="_blank" rel="noopener">github.com/Acebmoon</a></div></li>
+    </ul>
+  </section>
+
+</main>
+
+<main class="page" id="certificados" role="tabpanel" hidden>
+
+  <section>
+    <p class="oi">Certificados</p>
+    <h1>Formação e certificados</h1>
+    <p class="sub">Emitidos pela Universidade Salvador (UNIFACS).</p>
+    <a class="btn contato" href="#">Fazer pedido</a>
+  </section>
+
+  <section>
+    <ul>
+      <li class="cert"><img src="logo-unifacs.png" alt="Logo da UNIFACS" width="46" height="46" onerror="this.remove()"><div><div class="n">Algoritmos e Programação</div><div class="d">Universidade Salvador (UNIFACS) · jul de 2026</div></div></li>
+      <li class="cert"><img src="logo-unifacs.png" alt="Logo da UNIFACS" width="46" height="46" onerror="this.remove()"><div><div class="n">Exploração Digital e Fundamentos Tecnológicos</div><div class="d">Universidade Salvador (UNIFACS) · jul de 2026</div></div></li>
+    </ul>
+  </section>
+
+</main>
+
 <script>
   // Link do formulário de contato (Google Forms)
   const LINK_CONTATO = "https://docs.google.com/forms/d/e/1FAIpQLSe2FHzmch0ZdvKC1l2w2Zo_IZ0hhotW4JOc-2Xf9_zhEnoeTg/viewform";
@@ -95,6 +170,30 @@
   document.querySelectorAll(".contato").forEach(function (a) {
     a.href = LINK_CONTATO;
   });
+
+  // Abas: Serviços / Sobre o desenvolvedor / Certificados
+  const abas = document.querySelectorAll(".aba");
+
+  function mostrar(id) {
+    abas.forEach(function (b) {
+      b.setAttribute("aria-selected", b.dataset.aba === id ? "true" : "false");
+    });
+    document.querySelectorAll(".page").forEach(function (p) {
+      p.hidden = p.id !== id;
+    });
+    window.scrollTo(0, 0);
+  }
+
+  abas.forEach(function (b) {
+    b.addEventListener("click", function () {
+      mostrar(b.dataset.aba);
+      history.replaceState(null, "", "#" + b.dataset.aba);
+    });
+  });
+
+  const validas = ["servicos", "sobre", "certificados"];
+  const inicial = location.hash.slice(1);
+  mostrar(validas.indexOf(inicial) >= 0 ? inicial : "servicos");
 </script>
 </body>
 </html>
